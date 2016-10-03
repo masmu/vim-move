@@ -26,7 +26,7 @@ function! s:ResetCursor()
     normal! gv=gv^
 endfunction
 
-function! s:MoveBlockDown(start, end, count)
+function! MoveBlockDown(start, end, count)
     let next_line = a:end + a:count
 
     if v:count > 0
@@ -46,7 +46,7 @@ function! s:MoveBlockDown(start, end, count)
     endif
 endfunction
 
-function! s:MoveBlockUp(start, end, count)
+function! MoveBlockUp(start, end, count)
     let prev_line = a:start - a:count - 1
 
     if v:count > 0
@@ -66,7 +66,7 @@ function! s:MoveBlockUp(start, end, count)
     endif
 endfunction
 
-function! s:MoveLineUp(count) range
+function! MoveLineUp(count) range
     let distance = a:count + 1
 
     if v:count > 0
@@ -88,7 +88,7 @@ function! s:MoveLineUp(count) range
     endif
 endfunction
 
-function! s:MoveLineDown(count) range
+function! MoveLineDown(count) range
     let distance = a:count
 
     if v:count > 0
@@ -109,32 +109,32 @@ function! s:MoveLineDown(count) range
     endif
 endfunction
 
-function! s:MoveBlockOneLineUp() range
-    call s:MoveBlockUp(a:firstline, a:lastline, 1)
+function! MoveBlockOneLineUp() range
+    call MoveBlockUp(a:firstline, a:lastline, 1)
 endfunction
 
-function! s:MoveBlockOneLineDown() range
-    call s:MoveBlockDown(a:firstline, a:lastline, 1)
+function! MoveBlockOneLineDown() range
+    call MoveBlockDown(a:firstline, a:lastline, 1)
 endfunction
 
-function! s:MoveBlockHalfPageUp() range
+function! MoveBlockHalfPageUp() range
     let distance = winheight('.') / 2
-    call s:MoveBlockUp(a:firstline, a:lastline, distance)
+    call MoveBlockUp(a:firstline, a:lastline, distance)
 endfunction
 
-function! s:MoveBlockHalfPageDown() range
+function! MoveBlockHalfPageDown() range
     let distance = winheight('.') / 2
-    call s:MoveBlockDown(a:firstline, a:lastline, distance)
+    call MoveBlockDown(a:firstline, a:lastline, distance)
 endfunction
 
-function! s:MoveLineHalfPageUp() range
+function! MoveLineHalfPageUp() range
     let distance = winheight('.') / 2
-    call s:MoveLineUp(distance)
+    call MoveLineUp(distance)
 endfunction
 
-function! s:MoveLineHalfPageDown() range
+function! MoveLineHalfPageDown() range
     let distance = winheight('.') / 2
-    call s:MoveLineDown(distance)
+    call MoveLineDown(distance)
 endfunction
 
 function! s:MoveKey(key)
